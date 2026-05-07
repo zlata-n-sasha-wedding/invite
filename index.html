@@ -1602,7 +1602,6 @@ const weddingDate = new Date("2026-07-17T14:30:00+02:00");
     const prevBtn = document.getElementById("prevBtn");
     const homeBtn = document.getElementById("homeBtn");
     let current = 0;
-    let touchStartX = null;
 
     function updateCountdown() {
       const diff = Math.max(0, weddingDate.getTime() - Date.now());
@@ -1658,21 +1657,7 @@ const weddingDate = new Date("2026-07-17T14:30:00+02:00");
       if (event.key === "ArrowRight") next();
       if (event.key === "ArrowLeft" && current > 0) prev();
     });
-
-    document.getElementById("slides").addEventListener("touchstart", (event) => {
-      touchStartX = event.changedTouches[0].clientX;
-    }, { passive: true });
-
-    document.getElementById("slides").addEventListener("touchend", (event) => {
-      if (touchStartX === null || current === 0) return;
-      const delta = event.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(delta) > 54) {
-        delta < 0 ? next() : prev();
-      }
-      touchStartX = null;
-    }, { passive: true });
-
-    updateCountdown();
+updateCountdown();
     setInterval(updateCountdown, 60 * 1000);
     renderDots();
   </script>
