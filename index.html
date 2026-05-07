@@ -3,7 +3,6 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="v" content="4" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0f4f68" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1398,6 +1397,288 @@
 
     .party-track {
       touch-action: pan-x;
+    }
+
+
+    /* Финальная мобильная адаптация: контент не уходит за границы экрана */
+    html,
+    body {
+      min-height: 100%;
+      height: 100%;
+    }
+
+    .app {
+      min-height: 100dvh;
+      height: 100dvh;
+      padding: clamp(6px, 1.6dvh, 16px);
+    }
+
+    .phone {
+      height: calc(100dvh - clamp(12px, 3.2dvh, 32px));
+      min-height: 0;
+      max-height: none;
+    }
+
+    .slide-wrap {
+      min-height: 0;
+      flex: 1 1 auto;
+    }
+
+    .slide {
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-top: clamp(14px, 2.4dvh, 24px);
+      padding-bottom: clamp(14px, 2.4dvh, 24px);
+    }
+
+    .slide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topbar {
+      flex: 0 0 auto;
+      padding-top: clamp(8px, 1.4dvh, 14px);
+    }
+
+    .nav {
+      flex: 0 0 auto;
+      padding-bottom: clamp(8px, 1.6dvh, 16px);
+    }
+
+    .screen-label {
+      margin-bottom: clamp(12px, 2dvh, 20px);
+    }
+
+    .big {
+      font-size: clamp(24px, 4.1dvh, 30px);
+      line-height: 1.1;
+    }
+
+    .text {
+      font-size: clamp(13px, 2.05dvh, 16px);
+      line-height: 1.42;
+      margin-top: clamp(9px, 1.5dvh, 15px);
+    }
+
+    .soft-card {
+      margin-top: clamp(12px, 2.1dvh, 22px);
+      padding: clamp(13px, 2.1dvh, 18px);
+    }
+
+    .info {
+      margin-bottom: clamp(7px, 1.15dvh, 11px);
+      padding: clamp(10px, 1.7dvh, 15px);
+    }
+
+    .value {
+      font-size: clamp(15px, 2.25dvh, 18px);
+    }
+
+    .cover-photo-wrap {
+      width: min(270px, 76vw);
+      margin-top: clamp(12px, 2dvh, 18px);
+    }
+
+    .cover .names-title {
+      margin-top: clamp(8px, 1.6dvh, 14px) !important;
+    }
+
+    .cover .date {
+      margin-top: clamp(7px, 1.3dvh, 12px);
+    }
+
+    .cover .countdown {
+      margin-top: clamp(9px, 1.8dvh, 16px);
+    }
+
+    .cover .open-btn {
+      margin-top: clamp(10px, 2dvh, 18px);
+    }
+
+    .invite-photo-wrap {
+      width: min(210px, 58vw) !important;
+      margin-top: clamp(10px, 1.8dvh, 16px) !important;
+      margin-bottom: 0 !important;
+      transform: none !important;
+    }
+
+    .invite-photo {
+      aspect-ratio: 1.35 / 1 !important;
+    }
+
+    .party-carousel {
+      margin-top: clamp(8px, 1.4dvh, 12px);
+    }
+
+    .party-slide {
+      flex-basis: 70%;
+      aspect-ratio: 1.55 / 1;
+    }
+
+    .party-carousel-caption {
+      margin-top: 4px;
+    }
+
+    .gift-icon,
+    .marriage-rings-circle {
+      width: clamp(78px, 11.5dvh, 118px);
+      height: clamp(78px, 11.5dvh, 118px);
+    }
+
+    .marriage-rings-wrap,
+    .slide[data-label="Подарки"] .gift-icon {
+      margin-top: clamp(14px, 2.6dvh, 26px);
+    }
+
+    .rsvp-plain-button {
+      margin-top: clamp(26px, 4.4dvh, 42px) !important;
+    }
+
+    @media (max-width: 430px) {
+      .phone {
+        border-radius: 30px;
+      }
+
+      .slide {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .big {
+        font-size: clamp(23px, 7.1vw, 29px);
+      }
+
+      .screen-label {
+        font-size: 13px;
+      }
+
+      .party-slide {
+        flex-basis: 74%;
+      }
+    }
+
+    @media (max-height: 760px) {
+      .slide {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .screen-label {
+        margin-bottom: 10px;
+        padding: 9px 13px;
+      }
+
+      .big {
+        font-size: clamp(21px, 3.85dvh, 27px);
+      }
+
+      .text {
+        font-size: clamp(12px, 1.95dvh, 14px);
+        line-height: 1.34;
+        margin-top: 8px;
+      }
+
+      .soft-card {
+        margin-top: 10px;
+        padding: 12px;
+      }
+
+      .icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .value {
+        font-size: 15px;
+      }
+
+      .invite-photo-wrap {
+        width: min(180px, 52vw) !important;
+      }
+
+      .invite-photo {
+        aspect-ratio: 1.55 / 1 !important;
+      }
+
+      .party-slide {
+        flex-basis: 64%;
+        aspect-ratio: 1.75 / 1;
+      }
+
+      .party-carousel-caption {
+        display: none;
+      }
+
+      .marriage-rings-circle,
+      .gift-icon {
+        width: 78px;
+        height: 78px;
+      }
+    }
+
+    @media (max-height: 680px) {
+      .topbar {
+        padding-left: 16px;
+        padding-right: 16px;
+        font-size: 9px;
+      }
+
+      .brand-pill {
+        padding: 8px 11px;
+      }
+
+      .slide {
+        padding: 10px 18px;
+      }
+
+      .big {
+        font-size: 21px;
+      }
+
+      .text {
+        font-size: 12px;
+        line-height: 1.3;
+      }
+
+      .info {
+        padding: 9px 10px;
+        border-radius: 18px;
+      }
+
+      .soft-card {
+        border-radius: 20px;
+      }
+
+      .cover-photo-wrap {
+        width: min(210px, 62vw);
+      }
+
+      .cover .names-title {
+        font-size: 52px !important;
+      }
+
+      .countdown {
+        transform: scale(.92);
+        transform-origin: top center;
+        margin-bottom: -8px;
+      }
+
+      .invite-photo-wrap {
+        width: min(160px, 48vw) !important;
+      }
+
+      .party-slide {
+        flex-basis: 58%;
+        aspect-ratio: 1.9 / 1;
+      }
+
+      .gift-icon,
+      .marriage-rings-circle {
+        width: 68px;
+        height: 68px;
+      }
     }
 
   </style>
